@@ -10,7 +10,7 @@ exports.post_list = (req, res, next) => {
 	.exec( (err, post_list) => {
 		if (err) { return next(err); }
 		//Successful, so render
-		return res.json({ title: 'Post List', post_list: post_list });
+		return res.send({ title: 'Post List', post_list: post_list });
 	})
 }
 
