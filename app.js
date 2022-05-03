@@ -14,8 +14,9 @@ const compression = require('compression');
 const helmet = require('helmet');
 require('dotenv').config();
 
-const mongoDb = process.env.dbURL;
-mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
+const dev_db_url  = process.env.dbURL;
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
