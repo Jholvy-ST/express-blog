@@ -27,6 +27,7 @@ app.use(helmet());
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const mainRouter = require('./routes/main');
 
 // view engine setup
 /*app.set("views", __dirname);
