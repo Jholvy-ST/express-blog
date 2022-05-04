@@ -15,7 +15,7 @@ const helmet = require('helmet');
 require('dotenv').config();
 
 var app = express();
-const dev_db_url  = process.env.dbURL;
+const dev_db_url  = process.env.DBURL;
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
