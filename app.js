@@ -16,6 +16,8 @@ require('dotenv').config();
 
 var app = express();
 
+app.use(cors());
+
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
