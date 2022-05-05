@@ -12,13 +12,16 @@ const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const compression = require('compression');
 const helmet = require('helmet');
+const cors = require('cors')
 require('dotenv').config();
 
 var app = express();
 
-app.use(cors({
+app.use(cors());
+
+/*app.use(cors({
   origin: 'http://localhost:3000/'
-}));
+}));*/
 
 // Add headers
 app.use(function (req, res, next) {
