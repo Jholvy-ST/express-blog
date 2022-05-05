@@ -85,7 +85,7 @@ app.use('/main', mainRouter);
 
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://yoursite.com");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
