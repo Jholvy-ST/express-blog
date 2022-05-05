@@ -17,11 +17,11 @@ require('dotenv').config();
 
 var app = express();
 
-app.use(cors());
+//app.use(cors());
 
-/*app.use(cors({
+app.use(cors({
   origin: 'http://localhost:3000/'
-}));*/
+}));
 
 // Add headers
 app.use(function (req, res, next) {
