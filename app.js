@@ -123,6 +123,10 @@ app.get("/log-out", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/response", (req, res) => {
+  req.json({ title: 'Some title' });
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
