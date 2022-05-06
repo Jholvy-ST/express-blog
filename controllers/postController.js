@@ -40,7 +40,7 @@ exports.post_detail = (req, res, next) => {
 				return next(err);
 		}
 		// Successful, so render.
-		return res.json( { post: results.post, comments: results.comments } );
+		res.json( { post: results.post, comments: results.comments } );
 	});
 }
 
