@@ -52,7 +52,6 @@ exports.create_post_post =  [
 	body('title', 'Title must not be empty.').trim().isLength({ min: 1 }).escape(),
 	body('author', 'Author must not be empty.').trim().isLength({ min: 1 }).escape(),
 	body('content', 'Content must not be empty.').trim().isLength({ min: 1 }).escape(),
-	body('date', 'Invalid date').optional({ checkFalsy: true }).isISO8601().toDate(),
 
 	(req, res, next) => {
 		// Extract the validation errors from a request.
@@ -63,10 +62,11 @@ exports.create_post_post =  [
 				title: req.body.title,
 				content: req.body.content,
 				author: req.body.author,
-				date: req.body.date,
 				published: req.body.published
 			}
 		)
+
+		post['date'] = Date.now();
 
 		if (!errors.isEmpty()) {
 			// There are errors. Render form again with sanitized values/errors messages.
