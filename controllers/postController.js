@@ -103,20 +103,14 @@ exports.update_post = [
 
 			const post = new Post(
 				{
-					title: found_post.title,
-					content: found_post.content,
-					author: found_post.author,
+					title: req.body.title,
+					content: req.body.content,
+					author: req.body.author,
 					date: found_post.date,
-					published: found_post.published,
+					published: req.body.published,
 					_id: found_post.id
 				}
 			)
-
-			if (found_post.published) {
-				post['published'] = false;
-			} else {
-				post['published'] = true;
-			}
 		
 			Post.findByIdAndUpdate(req.params.id, post, {}, function (err) {
 				if (err) { return next(err); }
